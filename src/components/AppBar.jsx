@@ -1,16 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function AppBar() {
-  return (
-    <View style={styles.appbar}>
-      <View style={styles.appbarInner}>
-        <Text style={styles.appbarTitle}>Memo App</Text>
-        <Text style={styles.appbarRight}>ログアウト</Text>
-      </View>
+const AppBar = () => (
+  <View style={styles.appbar}>
+    <View style={styles.appbarInner}>
+      <Text style={styles.appbarTitle}>MemoApp</Text>
+      <Text style={styles.appbarRight}>ログアウト</Text>
     </View>
-  );
-}
+  </View>
+);
 
 const styles = StyleSheet.create({
   appbar: {
@@ -36,3 +34,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default AppBar;

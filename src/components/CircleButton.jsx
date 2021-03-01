@@ -3,20 +3,20 @@ import { View, StyleSheet } from 'react-native';
 import { string, shape } from 'prop-types';
 import { Feather } from '@expo/vector-icons';
 
-export default function circleButton(props) {
+const CircleButton = (props) => {
   const { style, name } = props;
   return (
     <View style={[styles.circleButton, style]}>
       <Feather name={name} size={32} color="white" />
     </View>
   );
-}
+};
 
-circleButton.propTypes = {
+CircleButton.propTypes = {
   style: shape(),
   name: string.isRequired,
 };
-circleButton.defaultProps = {
+CircleButton.defaultProps = {
   style: null,
 };
 const styles = StyleSheet.create({
@@ -42,3 +42,5 @@ const styles = StyleSheet.create({
     lineHeight: 40,
   },
 });
+
+export default CircleButton;
