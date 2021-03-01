@@ -1,6 +1,11 @@
 import React from 'react';
 import {
-  View, Text, TextInput, StyleSheet,
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Alert,
+  TouchableOpacity,
 } from 'react-native';
 import AppBar from '../components/AppBar';
 import Button from '../components/Button';
@@ -12,10 +17,17 @@ const SignUpScreen = () => (
       <Text style={styles.title}>Sign Up</Text>
       <TextInput style={styles.input} value="Email Address" />
       <TextInput style={styles.input} value="password" />
-      <Button label="Submit" />
+      <Button
+        label="Submit"
+        onPress={() => {
+          Alert.alert('Submit!');
+        }}
+      />
       <View>
-        <Text>Already registered?</Text>
-        <Text>Log In.</Text>
+        <Text style={styles.footer}>Already registered?</Text>
+        <TouchableOpacity>
+          <Text style={styles.footerLink}>Log In.</Text>
+        </TouchableOpacity>
       </View>
     </View>
   </View>

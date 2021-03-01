@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View, Text, StyleSheet, TouchableOpacity,
+} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const MemoList = () => (
@@ -9,27 +11,27 @@ const MemoList = () => (
         <Text style={styles.memoListItemTitle}>買い物リスト</Text>
         <Text style={styles.memoListItemDate}>2020年12月24日 10:00</Text>
       </View>
-      <View>
+      <TouchableOpacity>
         <Feather name="x" size={16} color="#B0B0B0" />
-      </View>
+      </TouchableOpacity>
     </View>
     <View style={styles.memoListItem}>
       <View>
         <Text style={styles.memoListItemTitle}>買い物リスト2</Text>
         <Text style={styles.memoListItemDate}>2020年12月24日 10:00</Text>
       </View>
-      <View>
+      <TouchableOpacity>
         <Feather name="x" size={16} color="#B0B0B0" />
-      </View>
+      </TouchableOpacity>
     </View>
     <View style={styles.memoListItem}>
       <View>
         <Text style={styles.memoListItemTitle}>買い物リスト3</Text>
         <Text style={styles.memoListItemDate}>2020年12月24日 10:00</Text>
       </View>
-      <View>
+      <TouchableOpacity>
         <Feather name="x" size={16} color="#B0B0B0" />
-      </View>
+      </TouchableOpacity>
     </View>
   </View>
 );
