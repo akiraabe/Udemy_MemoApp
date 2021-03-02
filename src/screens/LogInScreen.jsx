@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,26 @@ const LogInScreen = (props) => {
   const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // 動作実験用のコードブロック
+  useEffect(() => {
+    console.log('useEffect!');
+    return () => {
+      console.log('Unmount!');
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      }
+    });
+    return unsubscribe; // LoginScreenのアンマウントの瞬間にuserの監視をキャンセルする
+  }, []);
 
   function handlePress() {
     firebase
