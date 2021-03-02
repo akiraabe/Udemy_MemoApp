@@ -6,26 +6,42 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-const LogInScreen = () => (
-  <View style={styles.container}>
-    <AppBar />
-    <View style={styles.inner}>
-      <Text style={styles.title}>Logi In</Text>
-      <TextInput style={styles.input} value="Email Address" />
-      <TextInput style={styles.input} value="password" />
-      <Button label="Submit" />
-      <View>
-        <Text style={styles.footerText}>Not registered?</Text>
-        <TouchableOpacity>
-          <Text style={styles.footerLink}>Sign up here!</Text>
-        </TouchableOpacity>
+const LogInScreen = (props) => {
+  const { navigation } = props;
+  return (
+    <View style={styles.container}>
+      <View style={styles.inner}>
+        <Text style={styles.title}>Logi In</Text>
+        <TextInput style={styles.input} value="Email Address" />
+        <TextInput style={styles.input} value="password" />
+        <Button
+          label="Submit"
+          onPress={() => {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'MemoList' }],
+            });
+          }}
+        />
+        <View>
+          <Text style={styles.footerText}>Not registered?</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'SignUp' }],
+              });
+            }}
+          >
+            <Text style={styles.footerLink}>Sign up here!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
